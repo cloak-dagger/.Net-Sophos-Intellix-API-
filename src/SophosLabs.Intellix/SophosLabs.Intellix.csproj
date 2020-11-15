@@ -15,7 +15,7 @@ OpenAPI spec version: 1.1.0
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SophosLabs.Intellix</RootNamespace>
-    <AssemblyName>SophosLabs.Intellix</AssemblyName>
+    <AssemblyName>SophosLabs.Intellix.Client</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -70,6 +70,7 @@ OpenAPI spec version: 1.1.0
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="SophosLabs.Intellix.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="sophosfavicon.ico" />
