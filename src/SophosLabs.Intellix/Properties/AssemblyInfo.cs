@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SophosLabs Intelix API")]
 [assembly: AssemblyDescription("A SophosLabs Intelix API client library")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Cloak And Dagger")]
 [assembly: AssemblyProduct("SophosLabs Intelix API Client")]
 [assembly: AssemblyCopyright("Copyright 2020")]
 [assembly: AssemblyTrademark("")]

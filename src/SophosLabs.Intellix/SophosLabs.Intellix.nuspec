@@ -9,17 +9,17 @@
     <version>$version$</version>
 
     <!-- Authors contain text that appears directly on the gallery -->
-    <authors>$author$</authors>
+    <authors>Cloak And Dagger</authors>
 
     <!-- Owners are typically nuget.org identities that allow gallery
              users to earily find other packages by the same owners.  -->
-    <owners>$author$</owners>
+    <owners>Cloak And Dagger</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <developmentDependency>false</developmentDependency>
 
     <!-- The description can be used in package manager UI. Note that the
              nuget.org gallery uses information you add in the portal. -->
-    <description>$description$</description>
+    <description>A SophosLabs Intelix API client library</description>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/cloak-dagger/.Net-Sophos-Intellix-API-Client</projectUrl>
     <iconUrl>https://api.labs.sophos.com/static/v1.4.5/images/sophosfavicon.ico</iconUrl>
