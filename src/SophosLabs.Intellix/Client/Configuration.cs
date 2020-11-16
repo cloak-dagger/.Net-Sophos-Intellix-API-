@@ -114,7 +114,7 @@ namespace SophosLabs.Intellix.Client
         public Configuration()
         {
             UserAgent = "Swagger-Codegen/1.0.0/csharp";
-            BasePath = "https://de.api.labs.sophos.com/analysis/file/static/v1";
+            BasePath = "https://api.labs.sophos.com";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -129,7 +129,7 @@ namespace SophosLabs.Intellix.Client
             IDictionary<string, string> defaultHeader,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://de.api.labs.sophos.com/analysis/file/static/v1") : this()
+            string basePath = "https://api.labs.sophos.com") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -434,7 +434,7 @@ namespace SophosLabs.Intellix.Client
         /// </summary>
         public static String ToDebugReport()
         {
-            String report = "C# SDK (IO.Swagger) Debug Report:\n";
+            String report = "C# SDK (SophosLabs.Intellix) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.1.0\n";

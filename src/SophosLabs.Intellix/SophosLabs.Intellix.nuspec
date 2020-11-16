@@ -6,8 +6,8 @@
     <title>$title$</title>
 
     <!-- The package version number that is used when resolving dependencies -->
-    <version>$version$</version>
 
+    <version>1.0.1</version>
     <!-- Authors contain text that appears directly on the gallery -->
     <authors>Cloak And Dagger</authors>
 
@@ -29,10 +29,11 @@
     <!-- Dependencies are automatically installed when the package is installed -->
     <dependencies>
 
-      <dependency id="NewtonSoft.Json" version="10.0.3" />
-      <dependency id="JsonSubTypes" version="1.2.0" />
-      <dependency id="RestSharp" version="105.1.0" />
-
+      <group targetFramework="net45" >
+        <dependency id="NewtonSoft.Json" version="10.0.3" />
+        <dependency id="JsonSubTypes" version="1.2.0" />
+        <dependency id="RestSharp" version="105.1.0" />
+      </group>
     </dependencies>
   </metadata>
   <files>
@@ -41,5 +42,5 @@
     <file src="..\..\README.md" target="" />
     <file src="..\..\docs\**\*.*" target="docs" />
   </files>
-  
+
 </package>
