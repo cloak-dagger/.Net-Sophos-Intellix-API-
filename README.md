@@ -87,6 +87,43 @@ namespace Example
     }
 }
 ```
+## Getting Started File Hash Lookup
+
+```csharp
+using System;
+using System.Diagnostics;
+using SophosLabs.Intellix.Api;
+using SophosLabs.Intellix.Client;
+using SophosLabs.Intellix.Model;
+
+namespace Example
+{
+    public class Example
+    {
+        public void main()
+        {
+            // Configure OAuth2 access token for authorization: oAuthScheme
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new FileLookupApi();
+            var sha256 = sha256_example;  // string | The SHA256 hash of the requested file. 
+            var authorization = authorization_example;  // string | The access token obtained from the token endpoint to authenticate towards a specific SophosLabs API.  You can learn more about authentication towards SophosLabs APIs [here](/doc/authentication.html). 
+            var xCorrelationID = xCorrelationID_example;  // string | An optional caller-provided identifier which will be included in the response object. It must match the following regular expression: \"[-._a-zA-Z0-9]{1,40}\":  * Only alphanumeric characters, hyphens, dots and underscores are allowed * Min length of 1 character * Max length of 40 characters  (optional) 
+
+            try
+            {
+                // Get file hash categorization
+                apiInstance.Sha256Get(sha256, authorization, xCorrelationID);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling FileLookupApi.Sha256Get: " + e.Message );
+            }
+        }
+    }
+}
+```
+
 ## Getting Started Static File Analysis
 
 ```csharp
