@@ -20,7 +20,7 @@ namespace SophosLabs.Intellix.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-        public interface IAuthenticationApi : IApiAccessor
+    public interface IAuthenticationApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -33,7 +33,7 @@ namespace SophosLabs.Intellix.Api
         /// <param name="authorization">The authorization header. The secret is [Basic](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side): Base64Encode(client_id:client_secret). </param>
         /// <param name="contentType">The content type for the request body.  Must be **application/x-www-form-urlencoded** </param>
         /// <returns>AuthenticationResponse</returns>
-        AuthenticationResponse Oauth2TokenPost (string authorization, string contentType);
+        AuthenticationResponse Oauth2TokenPost(string authorization, string contentType);
 
         /// <summary>
         /// Authentication endpoint
@@ -45,7 +45,7 @@ namespace SophosLabs.Intellix.Api
         /// <param name="authorization">The authorization header. The secret is [Basic](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side): Base64Encode(client_id:client_secret). </param>
         /// <param name="contentType">The content type for the request body.  Must be **application/x-www-form-urlencoded** </param>
         /// <returns>ApiResponse of AuthenticationResponse</returns>
-        ApiResponse<AuthenticationResponse> Oauth2TokenPostWithHttpInfo (string authorization, string contentType);
+        ApiResponse<AuthenticationResponse> Oauth2TokenPostWithHttpInfo(string authorization, string contentType);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -58,7 +58,7 @@ namespace SophosLabs.Intellix.Api
         /// <param name="authorization">The authorization header. The secret is [Basic](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side): Base64Encode(client_id:client_secret). </param>
         /// <param name="contentType">The content type for the request body.  Must be **application/x-www-form-urlencoded** </param>
         /// <returns>Task of AuthenticationResponse</returns>
-        System.Threading.Tasks.Task<AuthenticationResponse> Oauth2TokenPostAsync (string authorization, string contentType);
+        System.Threading.Tasks.Task<AuthenticationResponse> Oauth2TokenPostAsync(string authorization, string contentType);
 
         /// <summary>
         /// Authentication endpoint
@@ -70,14 +70,14 @@ namespace SophosLabs.Intellix.Api
         /// <param name="authorization">The authorization header. The secret is [Basic](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side): Base64Encode(client_id:client_secret). </param>
         /// <param name="contentType">The content type for the request body.  Must be **application/x-www-form-urlencoded** </param>
         /// <returns>Task of ApiResponse (AuthenticationResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuthenticationResponse>> Oauth2TokenPostAsyncWithHttpInfo (string authorization, string contentType);
+        System.Threading.Tasks.Task<ApiResponse<AuthenticationResponse>> Oauth2TokenPostAsyncWithHttpInfo(string authorization, string contentType);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-        public partial class AuthenticationApi : IAuthenticationApi
+    public partial class AuthenticationApi : IAuthenticationApi
     {
         private SophosLabs.Intellix.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -142,7 +142,7 @@ namespace SophosLabs.Intellix.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public SophosLabs.Intellix.Client.Configuration Configuration {get; set;}
+        public SophosLabs.Intellix.Client.Configuration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -189,10 +189,10 @@ namespace SophosLabs.Intellix.Api
         /// <param name="authorization">The authorization header. The secret is [Basic](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side): Base64Encode(client_id:client_secret). </param>
         /// <param name="contentType">The content type for the request body.  Must be **application/x-www-form-urlencoded** </param>
         /// <returns>AuthenticationResponse</returns>
-        public AuthenticationResponse Oauth2TokenPost (string authorization, string contentType)
+        public AuthenticationResponse Oauth2TokenPost(string authorization, string contentType)
         {
-             ApiResponse<AuthenticationResponse> localVarResponse = Oauth2TokenPostWithHttpInfo(authorization, contentType);
-             return localVarResponse.Data;
+            ApiResponse<AuthenticationResponse> localVarResponse = Oauth2TokenPostWithHttpInfo(authorization, contentType);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace SophosLabs.Intellix.Api
         /// <param name="authorization">The authorization header. The secret is [Basic](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side): Base64Encode(client_id:client_secret). </param>
         /// <param name="contentType">The content type for the request body.  Must be **application/x-www-form-urlencoded** </param>
         /// <returns>ApiResponse of AuthenticationResponse</returns>
-        public ApiResponse< AuthenticationResponse > Oauth2TokenPostWithHttpInfo (string authorization, string contentType)
+        public ApiResponse<AuthenticationResponse> Oauth2TokenPostWithHttpInfo(string authorization, string contentType)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -217,6 +217,7 @@ namespace SophosLabs.Intellix.Api
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
+            var grantType = "grant_type=client_credentials";
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -235,14 +236,14 @@ namespace SophosLabs.Intellix.Api
 
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
             if (contentType != null) localVarHeaderParams.Add("Content-Type", this.Configuration.ApiClient.ParameterToString(contentType)); // header parameter
-            //if (grantType != null) localVarFormParams.Add("grant_type", this.Configuration.ApiClient.ParameterToString(grantType)); // form parameter
+            if (grantType != null) localVarFormParams.Add("grant_type", this.Configuration.ApiClient.ParameterToString(grantType)); // form parameter
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
@@ -252,7 +253,7 @@ namespace SophosLabs.Intellix.Api
 
             return new ApiResponse<AuthenticationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (AuthenticationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AuthenticationResponse)));
+                (AuthenticationResponse)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AuthenticationResponse)));
         }
 
         /// <summary>
@@ -262,10 +263,10 @@ namespace SophosLabs.Intellix.Api
         /// <param name="authorization">The authorization header. The secret is [Basic](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side): Base64Encode(client_id:client_secret). </param>
         /// <param name="contentType">The content type for the request body.  Must be **application/x-www-form-urlencoded** </param>
         /// <returns>Task of AuthenticationResponse</returns>
-        public async System.Threading.Tasks.Task<AuthenticationResponse> Oauth2TokenPostAsync (string authorization, string contentType)
+        public async System.Threading.Tasks.Task<AuthenticationResponse> Oauth2TokenPostAsync(string authorization, string contentType)
         {
-             ApiResponse<AuthenticationResponse> localVarResponse = await Oauth2TokenPostAsyncWithHttpInfo(authorization, contentType);
-             return localVarResponse.Data;
+            ApiResponse<AuthenticationResponse> localVarResponse = await Oauth2TokenPostAsyncWithHttpInfo(authorization, contentType);
+            return localVarResponse.Data;
 
         }
 
@@ -276,7 +277,7 @@ namespace SophosLabs.Intellix.Api
         /// <param name="authorization">The authorization header. The secret is [Basic](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side): Base64Encode(client_id:client_secret). </param>
         /// <param name="contentType">The content type for the request body.  Must be **application/x-www-form-urlencoded** </param>
         /// <returns>Task of ApiResponse (AuthenticationResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AuthenticationResponse>> Oauth2TokenPostAsyncWithHttpInfo (string authorization, string contentType)
+        public async System.Threading.Tasks.Task<ApiResponse<AuthenticationResponse>> Oauth2TokenPostAsyncWithHttpInfo(string authorization, string contentType)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -291,6 +292,7 @@ namespace SophosLabs.Intellix.Api
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
+            var grantType = "grant_type=client_credentials";
             Object localVarPostBody = null;
 
             // to determine the Content-Type header
@@ -309,14 +311,14 @@ namespace SophosLabs.Intellix.Api
 
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
             if (contentType != null) localVarHeaderParams.Add("Content-Type", this.Configuration.ApiClient.ParameterToString(contentType)); // header parameter
-            //if (grantType != null) localVarFormParams.Add("grant_type", this.Configuration.ApiClient.ParameterToString(grantType)); // form parameter
+            if (grantType != null) localVarFormParams.Add("grant_type", this.Configuration.ApiClient.ParameterToString(grantType)); // form parameter
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse)await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
@@ -326,7 +328,7 @@ namespace SophosLabs.Intellix.Api
 
             return new ApiResponse<AuthenticationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (AuthenticationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AuthenticationResponse)));
+                (AuthenticationResponse)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AuthenticationResponse)));
         }
 
     }

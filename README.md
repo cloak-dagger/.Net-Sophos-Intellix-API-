@@ -54,7 +54,41 @@ nuget pack -Build -OutputDirectory out SophosLabs.Intellix.csproj
 Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) or [other host](https://docs.microsoft.com/en-us/nuget/hosting-packages/overview) and consume the new package via Nuget as usual.
 
 <a name="getting-started"></a>
-## Getting Started
+## Getting Started Authentication
+
+```csharp
+using System;
+using System.Diagnostics;
+using SophosLabs.Intellix.Api;
+using SophosLabs.Intellix.Client;
+using SophosLabs.Intellix.Model;
+
+namespace Example
+{
+    public class Example
+    {
+        public void main()
+        {
+            var apiInstance = new AuthenticationApi();
+            var grantType = grantType_example;  // string | 
+            var authorization = authorization_example;  // string | The authorization header. The secret is [Basic](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side): Base64Encode(client_id:client_secret). 
+            var contentType = contentType_example;  // string | The content type for the request body.  Must be **application/x-www-form-urlencoded** 
+
+            try
+            {
+                // Authentication endpoint
+                AuthenticationResponse result = apiInstance.Oauth2TokenPost(grantType, authorization, contentType);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AuthenticationApi.Oauth2TokenPost: " + e.Message );
+            }
+        }
+    }
+}
+```
+## Getting Started Static File Analysis
 
 ```csharp
 using System;
