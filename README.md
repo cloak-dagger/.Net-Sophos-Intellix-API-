@@ -70,14 +70,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new AuthenticationApi();
-            var grantType = grantType_example;  // string | 
             var authorization = authorization_example;  // string | The authorization header. The secret is [Basic](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side): Base64Encode(client_id:client_secret). 
             var contentType = contentType_example;  // string | The content type for the request body.  Must be **application/x-www-form-urlencoded** 
 
             try
             {
                 // Authentication endpoint
-                AuthenticationResponse result = apiInstance.Oauth2TokenPost(grantType, authorization, contentType);
+                AuthenticationResponse result = apiInstance.Oauth2TokenPost(authorization, contentType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
